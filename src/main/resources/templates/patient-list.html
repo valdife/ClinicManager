@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .patient-data td,tr{
+                text-align: center;
+                -webkit-transition: background-color 0.33s;
+                -moz-transition: background-color 0.33s;
+                -ms-transition: background-color 0.33s;
+                -o-transition: background-color 0.33s;
+                transition: background-color 0.33s;
+            }
+
+            .patient-data td:hover{
+                background-color: rgba(100, 192, 228, 0.815);
+            }
+            #edit-button button {
+                visibility: hidden;
+                -webkit-transition: visibility;
+                -moz-transition: visibility;
+                -ms-transition: visibility;
+                -o-transition: visibility;
+                transition: visibility;
+                height: 100%;
+                width: 100%;
+            }
+
+            #edit-button:hover button {
+                visibility: visible;
+            }
+
+            #edit-button:hover{
+                background-color: #fff;
+            }
+
+            #patient-list-box {
+                width: 66%;
+                max-height: 70vh;
+                overflow: auto;
+            }
+
+            #add-button{
+                border-radius: 0%;
+                width: 66%;
+            }
+        </style>
+    </head>
+    <body>
+    <header>
+        <button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button>
+    </header>
+    <main>
+        <div id="patient-list-box" th:if="${not #lists.isEmpty(list)}">
+            <table id="patient-list" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">PESEL</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Change data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="patient-data" th:each="count : ${list}">
+                        <td scope="col" th:text="${count.getId()}">...</td>
+                        <td th:text="${count.getFirstName()}">...</td>
+                        <td th:text="${count.getLastName()}">...</td>
+                        <td th:text="${count.getPesel()}">...</td>
+                        <td th:text="${count.getHeight()}">...</td>
+                        <td th:text="${count.getWeight()}">...</td>
+                        <td id="edit-button"><button type="button" class="btn btn-info">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
