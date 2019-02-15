@@ -22,8 +22,12 @@ public class ShowController {
         repository.findAll().forEach(list::add);
         model.addAttribute("list", list);
         //
-
-
         return "patient-list";
     }
+
+//    @GetMapping("/add-patient")
+//    public String addPatient(Model model) {
+//
+//        return "add-patient";
+//    }
 }
