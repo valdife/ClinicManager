@@ -17,9 +17,13 @@ public class ShowController {
 
     @GetMapping("/patient-list")
     public String patientList(Model model) {
+        //Patient list
         List<Patient> list = new ArrayList<>();
         repository.findAll().forEach(list::add);
         model.addAttribute("list", list);
+        //
+
+
         return "patient-list";
     }
 }

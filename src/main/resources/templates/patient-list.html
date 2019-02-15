@@ -1,23 +1,34 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Getting Started: Serving Web Content</title>
+        <title>Clinic Manager</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
             .patient-data td,tr{
                 text-align: center;
-                -webkit-transition: background-color 0.33s;
-                -moz-transition: background-color 0.33s;
-                -ms-transition: background-color 0.33s;
-                -o-transition: background-color 0.33s;
-                transition: background-color 0.33s;
+                -webkit-transition: background-color 0.2s;
+                -moz-transition: background-color 0.2s;
+                -ms-transition: background-color 0.2s;
+                -o-transition: background-color 0.2s;
+                transition: background-color 0.2s;
             }
 
-            .patient-data td:hover{
+            .patient-data:hover, .patient-data-hidden:hover{
                 background-color: rgba(100, 192, 228, 0.815);
             }
-            #edit-button button {
+
+            .patient-data-hidden{
+                /*display: table-cell;*/
+                display: none;
+            }
+
+            .patient-col-hidden{
+                /*display: table-cell;*/
+                display: none;
+            }
+
+            .edit-button button {
                 visibility: hidden;
                 -webkit-transition: visibility;
                 -moz-transition: visibility;
@@ -28,23 +39,16 @@
                 width: 100%;
             }
 
-            #edit-button:hover button {
+            .edit-button:hover button {
                 visibility: visible;
             }
 
-            #edit-button:hover{
-                background-color: #fff;
-            }
-
             #patient-list-box {
-                width: 66%;
-                max-height: 70vh;
+                max-height: 80vh;
                 overflow: auto;
             }
-
             #add-button{
-                border-radius: 0%;
-                width: 66%;
+                border-radius: 0;
             }
         </style>
     </head>
@@ -52,6 +56,30 @@
     <header>
         <button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button>
     </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="http://localhost:8080">Exit</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <main>
         <div id="patient-list-box" th:if="${not #lists.isEmpty(list)}">
             <table id="patient-list" class="table">
@@ -61,27 +89,35 @@
                         <th scope="col">Name</th>
                         <th scope="col">Surname</th>
                         <th scope="col">PESEL</th>
-                        <th scope="col">Height</th>
-                        <th scope="col">Weight</th>
+                        <th class="patient-col-hidden" scope="col">Height</th>
+                        <th class="patient-col-hidden" scope="col">Weight</th>
+                        <th scope="col">Show more data</th>
                         <th scope="col">Change data</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="patient-data" th:each="count : ${list}">
-                        <td scope="col" th:text="${count.getId()}">...</td>
-                        <td th:text="${count.getFirstName()}">...</td>
-                        <td th:text="${count.getLastName()}">...</td>
-                        <td th:text="${count.getPesel()}">...</td>
-                        <td th:text="${count.getHeight()}">...</td>
-                        <td th:text="${count.getWeight()}">...</td>
-                        <td id="edit-button"><button type="button" class="btn btn-info">Edit</button></td>
+                    <tr th:each="count : ${list}">
+                        <td class="patient-data" scope="col" th:text="${count.getId()}">...</td>
+                        <td class="patient-data" th:text="${count.getFirstName()}">...</td>
+                        <td class="patient-data" th:text="${count.getLastName()}">...</td>
+                        <td class="patient-data" th:text="${count.getPesel()}">...</td>
+                        <td class="patient-data-hidden" th:text="${count.getHeight()}">...</td>
+                        <td class="patient-data-hidden" th:text="${count.getWeight()}">...</td>
+                        <td class="edit-button"><button type="button" id="showButton" class="btn btn-info" data-toggle="button" aria-pressed="false">Show</button></td>
+                        <td class="edit-button"><button type="button" id="editButton" class="btn btn-info" data-toggle="button" aria-pressed="false">Edit</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+         $("#showButton").click(function () {
+             $('.patient-col-hidden').toggle(100);
+             $('.patient-data-hidden').toggle(100);
+         });
+    </script>
     </body>
 </html>
