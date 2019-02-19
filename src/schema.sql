@@ -1,0 +1,9 @@
+CREATE TABLE Patient (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  firstName VARCHAR(128) NOT NULL,
+  lastName VARCHAR(128) NOT NULL,
+  pesel VARCHAR(128) NOT NULL,
+  height INTEGER,
+  weight INTEGER,
+  PRIMARY KEY (id)
+);

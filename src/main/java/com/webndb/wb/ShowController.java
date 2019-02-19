@@ -20,8 +20,8 @@ public class ShowController {
         //Patient list
         List<Patient> list = new ArrayList<>();
         repository.findAll().forEach(list::add);
+
         model.addAttribute("list", list);
-        //
         return "patient-list";
     }
 

@@ -5,6 +5,12 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
+            th {
+                position: sticky;
+                top: 0;
+            }
+
+
             .patient-data td,tr{
                 text-align: center;
                 -webkit-transition: background-color 0.2s;
@@ -28,7 +34,7 @@
                 display: none;
             }
 
-            .edit-button button {
+            .edit-button button, .edit-button a {
                 visibility: hidden;
                 -webkit-transition: visibility;
                 -moz-transition: visibility;
@@ -39,7 +45,7 @@
                 width: 100%;
             }
 
-            .edit-button:hover button {
+            .edit-button:hover button,.edit-button:hover a {
                 visibility: visible;
             }
 
@@ -91,8 +97,7 @@
                         <th scope="col">PESEL</th>
                         <th class="patient-col-hidden" scope="col">Height</th>
                         <th class="patient-col-hidden" scope="col">Weight</th>
-                        <th scope="col">Show more data</th>
-                        <th scope="col">Change data</th>
+                        <th scope="col">Show more data or change it</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -103,8 +108,7 @@
                         <td class="patient-data" th:text="${count.getPesel()}">...</td>
                         <td class="patient-data-hidden" th:text="${count.getHeight()}">...</td>
                         <td class="patient-data-hidden" th:text="${count.getWeight()}">...</td>
-                        <td class="edit-button"><button type="button" id="showButton" class="btn btn-info" data-toggle="button" aria-pressed="false">Show</button></td>
-                        <td class="edit-button"><button type="button" id="editButton" class="btn btn-info" data-toggle="button" aria-pressed="false">Edit</button></td>
+                        <td class="edit-button"><a class="btn btn-info" th:href="@{'/more/' + ${count.getId()}}" role="button">Show more</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -113,11 +117,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-         $("#showButton").click(function () {
-             $('.patient-col-hidden').toggle(100);
-             $('.patient-data-hidden').toggle(100);
-         });
-    </script>
+    <!--<script>-->
+         <!--$("#showButton").click(function () {-->
+             <!--$('.patient-col-hidden').toggle(100);-->
+             <!--$('.patient-data-hidden').toggle(100);-->
+         <!--});-->
+    <!--</script>-->
     </body>
 </html>

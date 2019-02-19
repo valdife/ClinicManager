@@ -1,5 +1,8 @@
 package com.webndb.wb;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class WbApplication {
-
+    private static final Logger log = LoggerFactory.getLogger(WbApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(WbApplication.class, args);
@@ -16,34 +19,38 @@ public class WbApplication {
     @Bean
     public CommandLineRunner database(CustomerRepository repository) {
         return (args) -> {
+
+
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
+            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
+            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
+
             // save a couple of customers //String pesel, float height, int weight
-            repository.save(new Patient("Jack", "Bauer", "53112162845",172,63));
-            repository.save(new Patient("Chloe", "O'Brian","92121851872",156,46));
-            repository.save(new Patient("Lol", "Bauer","59012967794",163,64));
-            repository.save(new Patient("David", "Palmer","91030645451",163,64));
-            repository.save(new Patient("David", "Palmer","79040139425",163,64));
-            repository.save(new Patient("Jack", "Bauer", "53112162845",172,63));
-            repository.save(new Patient("Chloe", "O'Brian","92121851872",156,46));
-            repository.save(new Patient("Kim", "Bauer","59012977794",163,64));
-            repository.save(new Patient("David", "Palmer","91030645451",163,64));
-            repository.save(new Patient("David", "Palmer","79040139425",163,64));
-            repository.save(new Patient("Jack", "Bauer", "53112162845",172,63));
-            repository.save(new Patient("Chloe", "O'Brian","92121851872",156,46));
-            repository.save(new Patient("Kim", "Bauer","59012977794",163,64));
-            repository.save(new Patient("David", "Palmer","91030645451",163,64));
-            repository.save(new Patient("David", "Palmer","79040139425",163,64));
-            repository.save(new Patient("Jack", "Bauer", "53112162845",172,63));
-            repository.save(new Patient("Chloe", "O'Brian","92121851872",156,46));
-            repository.save(new Patient("Kim", "Bauer","59012977794",163,64));
-            repository.save(new Patient("David", "Palmer","91030645451",163,64));
-            repository.save(new Patient("David", "Palmer","79040139425",163,64));
             // fetch all customers
 //            log.info("Customers found with findAll():");
 //            log.info("-------------------------------");
-//            for (Customer customer : repository.findAll()) {
-//                log.info(customer.toString());
+//            for (Patient patient : repository.findAll()) {
+//                log.info(patient.getFirstName());
 //            }
-//            log.info("");
+//            log.info("-------------------------------");
 
             // fetch an individual customer by ID
 //            repository.findById(1L)

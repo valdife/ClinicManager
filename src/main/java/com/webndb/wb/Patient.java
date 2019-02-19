@@ -21,12 +21,6 @@ public class Patient {
 
     protected Patient() {}
 
-    public Patient(String firstName, String lastName, String pesel){
-        this.firstName = "";
-        this.lastName = "";
-        this.pesel = "";
-    }
-
     public Patient(String firstName, String lastName, String pesel, Integer height, Integer weight) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,6 +28,7 @@ public class Patient {
         this.height = height;
         this.weight = weight;
     }
+
 
     public Long getId() {
         return id;

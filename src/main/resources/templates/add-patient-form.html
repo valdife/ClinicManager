@@ -55,11 +55,6 @@
     </style>
 </head>
 <body>
-<header>
-    <a href="/add-patient">
-        <button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button>
-    </a>
-</header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
     <div class="container">
         <a class="navbar-brand" href="http://localhost:8080">Exit</a>
@@ -84,10 +79,13 @@
         </div>
     </div>
 </nav>
-
-<form action="#" th:action="@{/}" th:object="${}" method="post">
+<!--th:action="#" th:object="#"-->
+<form action="#" method="get">
     First name: <input type="text" name="fname"><br>
     Last name: <input type="text" name="lname"><br>
+    PESEL: <input type="text" name="pesel"><br>
+    Weight: <input type="text" name="weight"><br>
+    Height: <input type="text" name="height"><br>
     <input type="submit" value="Submit">
 </form>
 
@@ -119,11 +117,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script>
-    $("#showButton").click(function () {
-        $('.patient-col-hidden').toggle(100);
-        $('.patient-data-hidden').toggle(100);
-    });
-</script>
+<!--<script>-->
+    <!--$("#showButton").click(function () {-->
+        <!--$('.patient-col-hidden').toggle(100);-->
+        <!--$('.patient-data-hidden').toggle(100);-->
+    <!--});-->
+<!--</script>-->
 </body>
 </html>
