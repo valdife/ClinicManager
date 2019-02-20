@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class Patient {
@@ -14,7 +15,7 @@ public class Patient {
     private Long id;
     private String firstName;
     private String lastName;
-    private String pesel;
+    private Integer pesel;
     private Integer height;
     private Integer weight;
 
@@ -23,7 +24,7 @@ public class Patient {
 
 
 
-    public Patient(String firstName, String lastName, String pesel, Integer height, Integer weight) {
+    public Patient(String firstName, String lastName, Integer pesel, Integer height, Integer weight) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
@@ -56,11 +57,11 @@ public class Patient {
         this.lastName = lastName;
     }
 
-    public String getPesel() {
+    public Integer getPesel() {
         return pesel;
     }
 
-    public void setPesel(String pesel) {
+    public void setPesel(Integer pesel) {
         this.pesel = pesel;
     }
 
