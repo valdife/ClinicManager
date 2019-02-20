@@ -57,7 +57,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
     <div class="container">
-        <a class="navbar-brand" href="http://localhost:8080">Exit</a>
+        <a class="navbar-brand" href="/patient-list">Back</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -79,13 +79,13 @@
         </div>
     </div>
 </nav>
-<!--th:action="#" th:object="#"-->
-<form action="#" method="get">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    PESEL: <input type="text" name="pesel"><br>
-    Weight: <input type="text" name="weight"><br>
-    Height: <input type="text" name="height"><br>
+
+<form action="#" th:action="@{/patient}" th:object="${patient}" method="post">
+    First name: <input type="text" th:field="*{firstName}" name="fname"><br>
+    Last name: <input type="text" th:field="*{lastName}" name="lname"><br>
+    PESEL: <input type="text" th:field= "*{pesel}" name="pesel"><br>
+    Weight: <input type="text" th:field= "*{weight}" name="weight"><br>
+    Height: <input type="text" th:field= "*{height}" name="height"><br>
     <input type="submit" value="Submit">
 </form>
 

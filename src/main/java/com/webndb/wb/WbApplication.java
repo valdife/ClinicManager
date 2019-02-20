@@ -18,33 +18,12 @@ public class WbApplication {
 
     @Bean
     public CommandLineRunner database(CustomerRepository repository) {
-        return (args) -> {
+        return (args) -> repository.save(new Patient("asd", "asd", "12312", 123, 1231));
+    }
+}
 
-
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-            repository.save(new Patient("xd", "Bauer", "1231233", 32, 321));
-            repository.save(new Patient("sf", "O'Brian", "321312312", 321, 53));
-            repository.save(new Patient("Kim", "Bauer", "321312312", 4125, 432));
-
-            // save a couple of customers //String pesel, float height, int weight
-            // fetch all customers
+// save a couple of customers //String pesel, float height, int weight
+// fetch all customers
 //            log.info("Customers found with findAll():");
 //            log.info("-------------------------------");
 //            for (Patient patient : repository.findAll()) {
@@ -52,7 +31,7 @@ public class WbApplication {
 //            }
 //            log.info("-------------------------------");
 
-            // fetch an individual customer by ID
+// fetch an individual customer by ID
 //            repository.findById(1L)
 //                    .ifPresent(customer -> {
 //                        log.info("Customer found with findById(1L):");
@@ -60,18 +39,14 @@ public class WbApplication {
 //                        log.info(customer.toString());
 //                        log.info("");
 //                    });
-            // fetch customers by last name
+// fetch customers by last name
 //            log.info("Customer found with findByLastName('Bauer'):");
 //            log.info("--------------------------------------------");
 //            repository.findByLastName("Bauer").forEach(bauer -> log.info(bauer.toString()));
 //            repository.findByFirstName("David").forEach(david -> log.info(david.toString()));
 
 
-            // for (Customer bauer : repository.findByLastName("Bauer")) {
-            // 	log.info(bauer.toString());
-            // }
-            //log.info("TEST TEST TEST");
-        };
-    }
-}
-
+// for (Customer bauer : repository.findByLastName("Bauer")) {
+// 	log.info(bauer.toString());
+// }
+//log.info("TEST TEST TEST");

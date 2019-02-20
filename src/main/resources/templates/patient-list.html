@@ -60,7 +60,7 @@
     </head>
     <body>
     <header>
-        <a href="/add-patient-form"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button></a>
+        <a href="/patient"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button></a>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
         <div class="container">
@@ -90,26 +90,26 @@
         <div id="patient-list-box" th:if="${not #lists.isEmpty(list)}">
             <table id="patient-list" class="table">
                 <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">PESEL</th>
-                        <th class="patient-col-hidden" scope="col">Height</th>
-                        <th class="patient-col-hidden" scope="col">Weight</th>
-                        <th scope="col">Show more data or change it</th>
-                    </tr>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">PESEL</th>
+                    <th class="patient-col-hidden" scope="col">Height</th>
+                    <th class="patient-col-hidden" scope="col">Weight</th>
+                    <th scope="col">Show more data or change it</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="count : ${list}">
-                        <td class="patient-data" scope="col" th:text="${count.getId()}">...</td>
-                        <td class="patient-data" th:text="${count.getFirstName()}">...</td>
-                        <td class="patient-data" th:text="${count.getLastName()}">...</td>
-                        <td class="patient-data" th:text="${count.getPesel()}">...</td>
-                        <td class="patient-data-hidden" th:text="${count.getHeight()}">...</td>
-                        <td class="patient-data-hidden" th:text="${count.getWeight()}">...</td>
-                        <td class="edit-button"><a class="btn btn-info" th:href="@{'/more/' + ${count.getId()}}" role="button">Show more</a></td>
-                    </tr>
+                <tr th:each="count : ${list}">
+                    <td class="patient-data" scope="col" th:text="${count.getId()}">...</td>
+                    <td class="patient-data" th:text="${count.getFirstName()}">...</td>
+                    <td class="patient-data" th:text="${count.getLastName()}">...</td>
+                    <td class="patient-data" th:text="${count.getPesel()}">...</td>
+                    <td class="patient-data-hidden" th:text="${count.getHeight()}">...</td>
+                    <td class="patient-data-hidden" th:text="${count.getWeight()}">...</td>
+                    <td class="edit-button"><a class="btn btn-info" th:href="@{'/more/' + ${count.getId()}}" role="button">Show more</a></td>
+                </tr>
                 </tbody>
             </table>
         </div>
