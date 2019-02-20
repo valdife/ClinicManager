@@ -84,7 +84,7 @@
     </div>
 </nav>
 
-<form action="#" th:action="@{/edit/{id}(id=${patient.getId})}" th:object="${patient}" method="post">
+<form action="#" th:action="@{/edit/{id}(id=${patient.id})}" th:object="${patient}" method="post">
     First name: <input type="text" th:field="*{firstName}" th:value="*{firstName}" name="fname"><br>
     Last name: <input type="text" th:field="*{lastName}" th:value="*{lastName}" name="lname"><br>
     PESEL: <input type="text" th:field= "*{pesel}" th:value= "*{pesel}" name="pesel"><br>
@@ -92,7 +92,6 @@
     Height: <input type="text" th:field= "*{height}" th:value= "*{height}"name="height"><br>
     <input type="submit" value="Submit">
 </form>
-<a href="/edit">Edit</a>
 
 
 
