@@ -15,7 +15,7 @@ import java.util.List;
 public class AddController {
 
     @Autowired
-    CustomerRepository repository;
+    PatientRepository repository;
 
     @GetMapping("/patient")
     public String patientAdd(Model model) {

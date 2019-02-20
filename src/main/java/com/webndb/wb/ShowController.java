@@ -13,7 +13,7 @@ import java.util.List;
 public class ShowController {
 
     @Autowired
-    CustomerRepository repository;
+    PatientRepository repository;
 
     @GetMapping("/patient-list")
     public String patientList(Model model) {

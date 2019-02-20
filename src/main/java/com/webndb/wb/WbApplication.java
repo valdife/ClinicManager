@@ -17,7 +17,7 @@ public class WbApplication {
     }
 
     @Bean
-    public CommandLineRunner database(CustomerRepository repository) {
+    public CommandLineRunner database(PatientRepository repository) {
         return (args) -> repository.save(new Patient("asd", "asd", 31212312, 123, 1231));
     }
 }

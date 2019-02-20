@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class EditController {
 
     @Autowired
-    CustomerRepository repository;
+    PatientRepository repository;
 
     @GetMapping("/edit/{id}")
     public String patientShowMore(@PathVariable("id") Long id, Model model) {

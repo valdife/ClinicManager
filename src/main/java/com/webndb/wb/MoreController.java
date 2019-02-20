@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MoreController {
 
     @Autowired
-    CustomerRepository repository;
+    PatientRepository repository;
 
     @GetMapping("/more/{id}")
     public String patientShowMore(@PathVariable("id") Long id, Model model){
