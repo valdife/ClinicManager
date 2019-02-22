@@ -2,12 +2,11 @@
                 position: sticky;
                 top: 0;
             }
-            
+
             .patient-data td,tr{
                 text-align: center;
                 -webkit-transition: background-color 0.2s;
                 -moz-transition: background-color 0.2s;
-                -ms-transition: background-color 0.2s;
                 -o-transition: background-color 0.2s;
                 transition: background-color 0.2s;
             }
@@ -26,6 +25,7 @@
                 width: 100%;
             }
 
+
             .edit-button:hover button,.edit-button:hover a {
                 visibility: visible;
             }
@@ -34,6 +34,7 @@
                 max-height: 80vh;
                 overflow: auto;
             }
-            #add-button{
+
+            .add-button{
                 border-radius: 0;
             }

@@ -6,9 +6,18 @@
         <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
+    <style>
+        .btn-block{
+            width: 33.33%;
+            margin-right: -3.33px;
+            display: inline-block;
+        }
+    </style>
     <body>
     <header>
-        <a href="/patient"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add patient to database</button></a>
+        <a href="/patient"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Add</button></a>
+        <a href="/patient-search"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Search</button></a>
+        <a href="/patient-delete"><button id="add-button" type="button" class="btn btn-primary btn-lg btn-block">Delete</button></a>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
         <div class="container">
