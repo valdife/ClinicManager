@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ReposConnectSvc {
+public class RepositoriesService {
 
-    private final AddressRepository addressRepo;
-    private final PatientRepository patientRepo;
+    public final AddressRepository addressRepository;
+    public final PatientRepository patientRepository;
 
     @Autowired
-    ReposConnectSvc(AddressRepository addressRepo, PatientRepository patientRepo) {
-        this.addressRepo = addressRepo;
-        this.patientRepo = patientRepo;
+    RepositoriesService(AddressRepository addressRepository, PatientRepository patientRepository) {
+        this.addressRepository = addressRepository;
+        this.patientRepository = patientRepository;
     }
 
 //    @RequestMapping("/foobar/{id}")

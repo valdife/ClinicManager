@@ -1,6 +1,7 @@
 package com.webndb.wb;
 
 
+import com.webndb.RepositoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +14,13 @@ import java.util.List;
 public class ShowController {
 
     @Autowired
-    PatientRepository repository;
+    RepositoriesService repositoriesService;
 
     @GetMapping("/patient-list")
     public String patientList(Model model) {
         //Patient list
         List<Patient> list = new ArrayList<>();
-        repository.findAll().forEach(list::add);
+        repositoriesService.patientRepository.findAll().forEach(list::add);
         model.addAttribute("list", list);
         return "patient-list";
     }

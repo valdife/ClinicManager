@@ -1,25 +1,19 @@
-package com.webndb.wb;
+package com.webndb;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class WbApplication {
-    private static final Logger log = LoggerFactory.getLogger(WbApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(WbApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner database(PatientRepository repository) {
-        return (args) -> repository.save(new Patient("asd", "asd", 31212312, 123, 1231));
-    }
+//    @Bean
+//    public CommandLineRunner database(PatientRepository repository) {
+//        return (args) -> repository.save(new Patient("asd", "asd", 31212312, 123, 1231));
+//    }
 }
 
 // fetch an individual customer by ID

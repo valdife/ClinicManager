@@ -1,5 +1,6 @@
 package com.webndb.wb;
 
+import com.webndb.RepositoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AddController {
 
     @Autowired
-    PatientRepository repository;
+    RepositoriesService repositoriesService;;
 
     @GetMapping("/patient")
     public String patientAdd(Model model) {
@@ -22,7 +23,7 @@ public class AddController {
 
     @PostMapping("/patient")
     public String patientAddSubmit(@ModelAttribute Patient patient) {
-        repository.save(patient);
+        repositoriesService.patientRepository.save(patient);
         return "more";
     }
 }

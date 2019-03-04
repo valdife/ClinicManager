@@ -1,5 +1,6 @@
 package com.webndb.wb;
 
+import com.webndb.RepositoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,18 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class EditController {
 
     @Autowired
-    PatientRepository repository;
+    RepositoriesService repositoriesService;
 
     @GetMapping("/edit/{id}")
     public String patientShowMore(@PathVariable("id") Long id, Model model) {
-        Patient patient = repository.findById(id).get();
+        Patient patient = repositoriesService.patientRepository.findById(id).get();
         model.addAttribute("patient", patient);
         return "edit";
     }
 
     @PostMapping("/edit/{id}")
     public String updateUser(@PathVariable("id") Long id, Patient patient, Model model) {
-        repository.save(patient);
+        repositoriesService.patientRepository.save(patient);
         return "more";
     }
 }
