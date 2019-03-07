@@ -40,7 +40,10 @@
 <p th:text="'PESEL: ' + ${patient.pesel}" />
 <p th:text="'Height: ' + ${patient.height}" />
 <p th:text="'Weight: ' + ${patient.weight}" />
+<!--<p th:text="'Address: ' + ${address.street} + ${address.streetNumber} + ${address.flatNumber} + ', ' ${address.postalCode} + ', ' + ${address.resort}, ', ' + ${address.country}" />-->
 <a th:href="@{'/edit/' + ${patient.id}}">Edit</a>
+
+
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

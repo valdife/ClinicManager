@@ -13,21 +13,19 @@ import java.util.List;
 @Controller
 public class ShowController {
 
+    private final
+    RepositoriesService rs;
+
     @Autowired
-    RepositoriesService repositoriesService;
+    public ShowController(RepositoriesService rs) {
+        this.rs = rs;
+    }
 
     @GetMapping("/patient-list")
     public String patientList(Model model) {
-        //Patient list
         List<Patient> list = new ArrayList<>();
-        repositoriesService.patientRepository.findAll().forEach(list::add);
+        rs.findAll().forEach(list::add);
         model.addAttribute("list", list);
         return "patient-list";
     }
-
-//    @GetMapping("/add-patient")
-//    public String addPatient(Model model) {
-//
-//        return "add-patient";
-//    }
 }

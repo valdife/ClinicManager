@@ -1,15 +1,18 @@
 package com.webndb;
 
+import com.webndb.address.Address;
 import com.webndb.address.AddressRepository;
+import com.webndb.wb.Patient;
 import com.webndb.wb.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
+import java.util.Set;
 
-@RestController
+@Service
 public class RepositoriesService {
 
-    public final AddressRepository addressRepository;
-    public final PatientRepository patientRepository;
+    private final AddressRepository addressRepository;
+    private final PatientRepository patientRepository;
 
     @Autowired
     RepositoriesService(AddressRepository addressRepository, PatientRepository patientRepository) {
@@ -17,11 +20,20 @@ public class RepositoriesService {
         this.patientRepository = patientRepository;
     }
 
-//    @RequestMapping("/foobar/{id}")
-//    public String fooBar(@PathVariable("id") Long id) {
-//        Foo foo = fooRepo.findById(id);
-//        Bar bar = barRepo.findById(id);
+    public void savePatient(Patient patient) {
+        patientRepository.save(patient);
+    }
+
+    public Patient findPatientById(Long id) {
+        return patientRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+    }
+
+    public Iterable<Patient> findAll() {
+        return patientRepository.findAll();
+    }
 //
-//        return foo.getFoo() + " " + bar.getBar();
+//    public Set<Address> findAddressById(Long id) {
+//        return addressRepository.findAllById(id);
 //    }
 }

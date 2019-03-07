@@ -1,16 +1,18 @@
 package com.webndb.wb;
 
 
-
+import com.webndb.address.Address;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "patient")
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
@@ -18,9 +20,8 @@ public class Patient {
     private Integer height;
     private Integer weight;
 
-
-    protected Patient() {}
-
+    protected Patient() {
+    }
 
 
     public Patient(String firstName, String lastName, Integer pesel, Integer height, Integer weight) {

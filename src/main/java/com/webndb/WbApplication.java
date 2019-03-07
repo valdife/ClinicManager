@@ -9,11 +9,6 @@ public class WbApplication {
     public static void main(String[] args) {
         SpringApplication.run(WbApplication.class, args);
     }
-
-//    @Bean
-//    public CommandLineRunner database(PatientRepository repository) {
-//        return (args) -> repository.save(new Patient("asd", "asd", 31212312, 123, 1231));
-//    }
 }
 
 // fetch an individual customer by ID

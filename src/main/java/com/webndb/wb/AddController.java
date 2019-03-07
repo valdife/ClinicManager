@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AddController {
 
+    private final
+    RepositoriesService rs;
+
     @Autowired
-    RepositoriesService repositoriesService;;
+    public AddController(RepositoriesService rs) {
+        this.rs = rs;
+    }
 
     @GetMapping("/patient")
     public String patientAdd(Model model) {
@@ -23,7 +28,7 @@ public class AddController {
 
     @PostMapping("/patient")
     public String patientAddSubmit(@ModelAttribute Patient patient) {
-        repositoriesService.patientRepository.save(patient);
+        rs.savePatient(patient);
         return "more";
     }
 }
