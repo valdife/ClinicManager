@@ -1,13 +1,15 @@
 package com.webndb.address;
 
 
+import com.webndb.wb.Patient;
+
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "address")
 public class Address {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String street;
     private Integer streetNumber;
     private Integer flatNumber;
@@ -35,6 +37,9 @@ public class Address {
         this.country = country;
     }
 
+//    public Long getId() {
+//        return id;
+//    }
 
     public String getStreet() {
         return street;
