@@ -5,7 +5,7 @@ import com.webndb.wb.Patient;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Address")
 @Table(name = "address")
 public class Address {
 
@@ -16,10 +16,14 @@ public class Address {
     private Integer postalCode;
     private String resort;
     private String country;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "patient_id")
+//    private Patient patient;
 
-    protected Address(){}
+    protected Address() {
+    }
 
-    public Address(String street, Integer streetNumber, Integer postalCode, String resort, String country){
+    public Address(String street, Integer streetNumber, Integer postalCode, String resort, String country) {
         this.street = street;
         this.streetNumber = streetNumber;
         this.flatNumber = null;
@@ -28,7 +32,7 @@ public class Address {
         this.country = country;
     }
 
-    public Address(String street, Integer streetNumber, Integer flatNumber, Integer postalCode, String resort, String country){
+    public Address(String street, Integer streetNumber, Integer flatNumber, Integer postalCode, String resort, String country) {
         this.street = street;
         this.streetNumber = streetNumber;
         this.flatNumber = flatNumber;

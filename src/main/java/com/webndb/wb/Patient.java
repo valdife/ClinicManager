@@ -4,10 +4,9 @@ package com.webndb.wb;
 import com.webndb.address.Address;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Patient")
 @Table(name = "patient")
 public class Patient {
 
@@ -19,6 +18,12 @@ public class Patient {
     private Integer pesel;
     private Integer height;
     private Integer weight;
+//    @OneToMany(
+//            mappedBy = "patient",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    private Set<Address> patientAddresses;
 
     protected Patient() {
     }
@@ -81,3 +86,4 @@ public class Patient {
         this.weight = weight;
     }
 }
+
